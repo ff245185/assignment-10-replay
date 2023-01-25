@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navebar = () => {
     return (
         <div className="navbar bg-base-100">
   <div className="flex-1">
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <Link to='/' className="btn btn-ghost normal-case text-xl">bd-Stock</Link>
   </div>
+    <div className='justify-between flex-1 mt-4'>
+    <div > <Link to= 'home'><button className="btn  btn-outline btn-success">Home</button></Link> </div>
+  <div ><Link to='course'><button className="btn btn-outline btn-success">Course</button></Link> </div>
+  <div ><Link to='blog'><button className="btn btn-outline btn-success">Blog</button></Link> </div> 
+  <div><Link to='aboute'><button className="btn btn-outline btn-success">About</button></Link> </div>
+    </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -27,18 +34,18 @@ const Navebar = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img src="https://placeimg.com/80/80/people" />
+          <img src="https://placeimg.com/80/80/people"  alt=''/>
         </div>
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li>
-          <a className="justify-between">
+          <Link className="justify-between">
             Profile
             <span className="badge">New</span>
-          </a>
+          </Link>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><Link>Settings</Link></li>
+        <li><Link>Logout</Link></li>
       </ul>
     </div>
   </div>
