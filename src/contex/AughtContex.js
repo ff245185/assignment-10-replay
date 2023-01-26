@@ -1,16 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/Firebase.config';
-import {getAuth,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut} from "Firebase/auth"
-
-
-
+import {onAuthStateChanged,getAuth,signInWithPopup,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut} from 
+    "firebase/auth"
 
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
 
 
- const AughtContex = ({}) => {
+ const AughtContex = ({children}) => {
       
     const {userLogin, setUserLogin} = useState(null);
     const {loding, setLoding} = useState (true);
@@ -30,10 +31,31 @@ const auth = getAuth(app)
 		signOut(auth);
 	};
 
+    useEffect(()=>{
+        const stateChange =onAuthStateChanged(auth,currentUser =>{
+            setLoding(false);
+            setUserLogin(currentUser);
+        });
+
+        return  () =>{
+         stateChange();
+        }
+    },[])
+
+    const info = {
+        ProviderLogin,
+        createUser,
+        logOut ,
+        singInUser,
+        userLogin,
+        loding,
+
+    }
+
 
     return (
         <div>
-            
+            <AughtContex.Provider  value={info}>{children}</AughtContex.Provider>
         </div>
     );
 };
