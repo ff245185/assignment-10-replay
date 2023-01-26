@@ -3,9 +3,9 @@ import { RouterProvider } from 'react-router';
 import './App.css';
 import { router } from './Router/Router';
 
-function App() {
+function App({children}) {
   return (
-     <RouterProvider router={router}></RouterProvider>
+     <RouterProvider router={router}>{children}</RouterProvider>
   );
 }
 

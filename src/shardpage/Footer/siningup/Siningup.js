@@ -4,7 +4,9 @@ import { AuthContext } from '../../../contex/AughtContex';
 
 const Siningup = () => {
 
- //const {createUser} = useContext(AuthContext)
+ const {createUser} = useContext(AuthContext)
+
+
 
  const handleCreateUser = event => {
     event.preventDefault();
@@ -12,12 +14,12 @@ const Siningup = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    //createUser(name,email,password)
-    //.then(result=>{
-     //   const user = result.user;
-    //    console.log(user);
-    //})
-   // console.log(name,email,password);
+    createUser(email,password)
+    .then(result=>{
+       const user = result.user;
+       console.log(user);
+    })
+   console.log(name,email,password);
  }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -33,7 +35,7 @@ const Siningup = () => {
                         <label className="label">
                             <span className="label-text">name</span>
                         </label>
-                        <input name='name' type="text" placeholder="name" className="input input-bordered" />
+                        <input name='name' type="text" placeholder="name" className="input input-bordered" disabled />
                     </div>
                         {/* email */}
                     <div className="form-control">

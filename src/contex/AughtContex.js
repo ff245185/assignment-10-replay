@@ -21,7 +21,9 @@ const auth = getAuth(app)
         return signInWithPopup(auth, provider);
     }
     const createUser = (email,password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
+       
+        return createUserWithEmailAndPassword(auth,email, password);
+        
     }
 
     const singInUser = (email, password) => {
@@ -42,6 +44,8 @@ const auth = getAuth(app)
         }
     },[])
 
+    
+
     const info = {
         ProviderLogin,
         createUser,
@@ -49,13 +53,14 @@ const auth = getAuth(app)
         singInUser,
         userLogin,
         loding,
+   
 
     }
 
 
     return (
         <div>
-            <AughtContex.Provider  value={info}>{children}</AughtContex.Provider>
+           <AuthContext.Provider value={info}>{children}</AuthContext.Provider>
         </div>
     );
 };

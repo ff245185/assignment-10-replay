@@ -1,7 +1,16 @@
-import React from 'react';
+import userEvent from '@testing-library/user-event';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contex/AughtContex';
 
 const Navebar = () => {
+
+  const {user,logOut} = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=>{})
+  }
     return (
         <div className="navbar bg-base-100">
   <div className="flex-1">
@@ -45,8 +54,12 @@ const Navebar = () => {
             <span className="badge">New</span>
           </Link>
         </li>
-        <li><Link>Settings</Link></li>
-        <li><Link>Logout</Link></li>
+        {
+         
+          <button className='btn' onClick={handleLogOut}>logOut</button> 
+          
+         
+        }
       </ul>
     </div>
   </div>
