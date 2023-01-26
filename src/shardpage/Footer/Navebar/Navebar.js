@@ -8,10 +8,11 @@ const Navebar = () => {
     <Link to='/' className="btn btn-ghost normal-case text-xl">bd-Stock</Link>
   </div>
     <div className='justify-between flex-1 mt-4'>
-    <div > <Link to= 'home'><button className="btn  btn-outline btn-success">Home</button></Link> </div>
-  <div ><Link to='course'><button className="btn btn-outline btn-success">Course</button></Link> </div>
-  <div ><Link to='blog'><button className="btn btn-outline btn-success">Blog</button></Link> </div> 
-  <div><Link to='aboute'><button className="btn btn-outline btn-success">About</button></Link> </div>
+    <div > <Link to= '/home'><button className="btn  btn-outline btn-success">Home</button></Link> </div>
+  <div ><Link to='/course'><button className="btn btn-outline btn-success">Course</button></Link> </div>
+  <div ><Link to='/blog'><button className="btn btn-outline btn-success">Blog</button></Link> </div> 
+  <div><Link to='/aboute'><button className="btn btn-outline btn-success">About</button></Link> </div>
+  <div><Link to='/login'><button className="btn">Login</button></Link> </div>
     </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
